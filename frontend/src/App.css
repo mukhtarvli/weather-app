@@ -1,0 +1,296 @@
+
+/* ================================
+   GLOBAL STYLES
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ================================
+   MAIN DASHBOARD
+================================ */
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+main > h1 {
+    font-size: clamp(30px, 5vw, 42px);
+    font-weight: 750;
+    letter-spacing: -1px;
+    margin: 0 0 12px;
+    color: #f8fafc;
+}
+
+main > h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #94a3b8;
+    margin: 0 0 24px;
+}
+
+/* ================================
+   ADD CITY FORM
+================================ */
+
+.city-form {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    max-width: 650px;
+    margin-bottom: 48px;
+}
+
+.city-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 18px;
+    background: #1e293b;
+    color: #f8fafc;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.city-form input::placeholder {
+    color: #94a3b8;
+}
+
+.city-form input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.city-form button {
+    padding: 15px 24px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.city-form button:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.city-form button:active {
+    transform: translateY(0);
+}
+
+/* ================================
+   WEATHER SECTION
+================================ */
+
+section {
+    margin-top: 24px;
+}
+
+section > h2 {
+    font-size: 24px;
+    font-weight: 650;
+    margin: 0 0 24px;
+    letter-spacing: -0.4px;
+}
+
+.weather-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* ================================
+   WEATHER CARDS
+================================ */
+
+.weather-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 28px;
+    background: linear-gradient(145deg, #1e293b, #172235);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.weather-card:hover {
+    transform: translateY(-4px);
+    border-color: #475569;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* City name */
+.weather-card h2 {
+    font-size: 20px;
+    font-weight: 650;
+    color: #f8fafc;
+    margin: 0 0 24px;
+    overflow-wrap: anywhere;
+}
+
+/* Temperature */
+.weather-card h1 {
+    font-size: clamp(42px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0 0 28px;
+}
+
+/* Weather details */
+.weather-card p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.weather-card p:last-of-type {
+    border-bottom: none;
+}
+
+/* ================================
+   DELETE CITY BUTTON
+================================ */
+
+.weather-card button {
+    width: 100%;
+    margin-top: auto;
+    padding: 12px 16px;
+    background: rgba(239, 68, 68, 0.08);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.weather-card button:hover {
+    background: rgba(239, 68, 68, 0.18);
+    border-color: #ef4444;
+}
+
+.weather-card button:focus-visible,
+.city-form button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+.weather-card p:last-of-type {
+    margin-bottom: 24px;
+}
+
+/* ================================
+   ERROR & LOADING MESSAGES
+================================ */
+
+.error-message {
+    padding: 14px 18px;
+    margin: 16px 0;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 10px;
+    color: #fca5a5;
+    font-size: 14px;
+}
+
+.loading-message {
+    color: #94a3b8;
+    font-size: 15px;
+    padding: 20px 0;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 768px) {
+    main {
+        padding: 32px 20px;
+    }
+
+    .weather-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+    }
+
+    .weather-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 24px 16px;
+    }
+
+    .city-form {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 36px;
+    }
+
+    .city-form input,
+    .city-form button {
+        width: 100%;
+    }
+
+    .weather-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-card {
+        padding: 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .weather-card,
+    .city-form button,
+    .weather-card button {
+        transition: none;
+    }
+
+    .weather-card:hover,
+    .city-form button:hover {
+        transform: none;
+    }
+}
