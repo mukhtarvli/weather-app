@@ -17,6 +17,10 @@ app.use("/api/cities", cityRoutes);
 app.use("/api/weather", weatherRoutes);
 
 // Start server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = app;
